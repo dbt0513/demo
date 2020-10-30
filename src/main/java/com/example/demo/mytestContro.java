@@ -1,8 +1,8 @@
 package com.example.demo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class mytestContro {
     public static void test3() {
@@ -26,11 +26,19 @@ public class mytestContro {
         System.out.println(mytest.test(2));
         System.out.println(mytest2.test(3));
         System.out.println(mytest3.test(4));
-
+        
     }
     public static void main(String[] args) {
-        testLambda lam= mytestContro::add;
-        System.out.println(lam.c(1,2));
+//        testLambda lam= mytestContro::add;
+//        System.out.println(lam.c(1,2));
+        LinkedList<String> llist=new LinkedList<>();
+        Stream<String> stream = llist.stream();
+        String[] iarr={"0","1"};
+        Stream<String> stream1 = Arrays.stream(iarr);
+        IntStream intStream = stream1.mapToInt(Integer::parseInt);
+        int[] iarr2 = intStream.toArray();
+        
+
     }
 
     private interface testLambda{
