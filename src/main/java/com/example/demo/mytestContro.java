@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -16,28 +18,35 @@ public class mytestContro {
 
         mytestImpl mytest = new mytestImpl();
         mytest mytest2 = new mytest() {
-
             @Override
-            public boolean test(Object o) {
-                return false;
+            public int a(int x,int y) {
+                if (x<y){
+                    return -1;
+                }else if (x==y){
+                    return 0;
+                }else {
+                    return 1;
+                }
             }
         };
-        mytest mytest3=x-> true;
-        System.out.println(mytest.test(2));
-        System.out.println(mytest2.test(3));
-        System.out.println(mytest3.test(4));
+        mytest mytest3=Integer::compare;
+        System.out.println(mytest.a(2,3));
+        System.out.println(mytest2.a(3,3));
+        System.out.println(mytest3.a(5,4));
         
     }
     public static void main(String[] args) {
 //        testLambda lam= mytestContro::add;
 //        System.out.println(lam.c(1,2));
-        LinkedList<String> llist=new LinkedList<>();
+        /*LinkedList<String> llist=new LinkedList<>();
         Stream<String> stream = llist.stream();
         String[] iarr={"0","1"};
         Stream<String> stream1 = Arrays.stream(iarr);
         IntStream intStream = stream1.mapToInt(Integer::parseInt);
-        int[] iarr2 = intStream.toArray();
-        
+        int[] iarr2 = intStream.toArray();*/
+//        test3();
+        ArrayList<Integer> list = new ArrayList<>();
+
 
     }
 
