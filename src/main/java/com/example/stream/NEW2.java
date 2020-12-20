@@ -3,6 +3,7 @@ package com.example.stream;
 import javax.sound.midi.Soundbank;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class NEW2 {
@@ -10,18 +11,33 @@ public class NEW2 {
     public static void main(String[] args) {
 //        FC1();
 //        FC2();
-        FC3();
+//        FC3();
+        FC4();
     }
 
 
+    public static  void FC4(){
+        int[] data={0,1,2,3,4,5};
+        IntStream stream = Arrays.stream(data);
+        List<Integer> integers = new ArrayList<>();
+        Stream<Integer> stream1 = integers.stream();
+        OptionalInt max = stream.max();
+        System.out.println(max);
+
+
+    }
 
     public static void FC3() {
-        Stream<Integer> stream = dataSource();
+//        Stream<Integer> stream = dataSource();
 //        Integer integer = stream.max(Integer::compareTo).get();
 //        System.out.println(integer);
 //        boolean b = stream.noneMatch(x -> x > 5);
 //        System.out.println(b);
-        Integer integer = stream.parallel().findAny().get();
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        Stream<Integer> stream = list.stream();
+
+        Optional<Integer> integer = stream.parallel().findAny();
         System.out.println(integer);
 
 
